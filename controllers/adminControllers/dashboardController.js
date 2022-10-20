@@ -12,11 +12,12 @@ dashboard.shortSummary = async (req, res) => {
     
     try {
         let data = {};
+    
         data.totalUser = await User.count();
         data.totalBrand = await Brand.count();
         data.totalCategory = await Category.count();
         data.totalEmployee = await Employee.count();
-        data.totalPendingOrder = await Employee.find({ status: 'pending' }).count();
+        data.totalPendingOrder = await Order.find({ status: 'pending' }).count();
 
         
         // total sale & total revenue
